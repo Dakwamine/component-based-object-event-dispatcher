@@ -1,0 +1,22 @@
+{
+    "name": "dakwamine/component-based-object-event-dispatcher",
+    "description": "Simple event dispatcher using dakwamine/component-based-object.",
+    "type": "library",
+    "require": {
+        "dakwamine/component-based-object": "^1.0",
+        "php": ">=7.2",
+        "psr/event-dispatcher": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Quang-Minh DANG",
+            "email": "dakwamine@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Dakwamine\\Component\\Event\\": "src/"
+        }
+    }
+}
