@@ -3,7 +3,7 @@
     "description": "Simple event dispatcher using dakwamine/component-based-object.",
     "type": "library",
     "require": {
-        "dakwamine/component-based-object": "^1.0",
+        "dakwamine/component-based-object": "^1.0||^2.0",
         "php": ">=7.2",
         "psr/event-dispatcher": "^1.0"
     },
