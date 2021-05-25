@@ -58,7 +58,7 @@ class ListenerProvider extends ComponentBasedObject implements ListenerProviderI
 
         foreach ($this->listenerGroups[$event->getName()]->getListeners() as $listenerClassName) {
             // Retrieve the listener instance.
-            $instance = $this->getComponentByClassName($listenerClassName, true);
+            $instance = static::getSharedComponentByClassName($listenerClassName, true);
 
             if (empty($instance)) {
                 // Failed to load the listener.
