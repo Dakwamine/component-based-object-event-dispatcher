@@ -15,7 +15,7 @@ interface ListenerGroupInterface
      * @param int $priority
      *   Priority for listener sorting.
      */
-    public function addListener($eventListenerClassName, $priority = 0);
+    public function addListener(string $eventListenerClassName, int $priority = 0): void;
 
     /**
      * Gets the listeners list.
@@ -23,5 +23,5 @@ interface ListenerGroupInterface
      * @return string[]
      *   Array of listeners class names, ordered by priority.
      */
-    public function getListeners();
+    public function getListeners(): array;
 }

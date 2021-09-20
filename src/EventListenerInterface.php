@@ -15,5 +15,5 @@ interface EventListenerInterface
      *   Must implement EventInterface.
      *   May implement StoppableEventInterface.
      */
-    public function handleEvent(EventInterface $event);
+    public function handleEvent(EventInterface $event): void;
 }

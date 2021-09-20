@@ -3,8 +3,8 @@
     "description": "Simple event dispatcher using dakwamine/component-based-object.",
     "type": "library",
     "require": {
-        "dakwamine/component-based-object": "^1.0||^2.0",
-        "php": ">=7.2",
+        "dakwamine/component-based-object": "^3.0",
+        "php": ">=7.3",
         "psr/event-dispatcher": "^1.0"
     },
     "license": "MIT",

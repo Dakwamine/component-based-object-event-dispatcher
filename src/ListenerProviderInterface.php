@@ -14,10 +14,10 @@ interface ListenerProviderInterface extends PsrListenerProviderInterface
      *
      * @param string $eventName
      *   The event name.
-     * @param $listenerClassName
+     * @param string $listenerClassName
      *   The listener class name to use when fetching from the component registry.
      * @param int $priority
      *   The priority. Lower values are called first.
      */
-    public function addListener($eventName, $listenerClassName, $priority = 0);
+    public function addListener(string $eventName, string $listenerClassName, int $priority = 0): void;
 }

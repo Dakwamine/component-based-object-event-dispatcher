@@ -27,7 +27,7 @@ class ListenerGroup implements ListenerGroupInterface
     /**
      * {@inheritdoc}
      */
-    public function addListener($eventListenerClassName, $priority = 0)
+    public function addListener(string $eventListenerClassName, int $priority = 0): void
     {
         $this->listeners[$priority][] = $eventListenerClassName;
         $this->needsSorting = true;
@@ -36,7 +36,7 @@ class ListenerGroup implements ListenerGroupInterface
     /**
      * {@inheritdoc}
      */
-    public function getListeners()
+    public function getListeners(): array
     {
         if ($this->needsSorting) {
             $this->sortListeners();
@@ -58,7 +58,7 @@ class ListenerGroup implements ListenerGroupInterface
      *
      * Do not call this too often.
      */
-    private function sortListeners()
+    private function sortListeners(): void
     {
         ksort($this->listeners, SORT_NUMERIC);
         $this->needsSorting = false;

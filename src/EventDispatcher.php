@@ -31,7 +31,7 @@ class EventDispatcher extends ComponentBasedObject implements EventDispatcherInt
             $this->listenerProvider = $listenerProvider;
         } else {
             $this->listenerProvider =
-                static::getSharedComponentByClassName(ListenerProvider::class, true);
+                ComponentBasedObject::getRootComponentByClassName(ListenerProvider::class, true);
         }
     }
 

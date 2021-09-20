@@ -13,5 +13,5 @@ interface EventInterface
      * @return string
      *   The event name.
      */
-    public function getName();
+    public function getName(): string;
 }
