@@ -63,4 +63,44 @@ class EventDispatcher extends ComponentBasedObject implements EventDispatcherInt
 
         return $event;
     }
+
+    /**
+     * Dispatches an event while isolating listener failures.
+     *
+     * @param object $event
+     *   Event to dispatch.
+     * @param callable|null $onListenerError
+     *   Optional callback called as:
+     *   fn(\Throwable $throwable, EventInterface $event, EventListenerInterface $listener): void
+     */
+    public function dispatchWithExceptionHandling(object $event, ?callable $onListenerError = null)
+    {
+        if (!$event instanceof EventInterface) {
+            return $event;
+        }
+
+        $isStoppable = $event instanceof StoppableEventInterface;
+
+        foreach ($this->listenerProvider->getListenersForEvent($event) as $listener) {
+            /** @var EventListenerInterface $listener */
+            try {
+                $listener->handleEvent($event);
+            } catch (\Throwable $throwable) {
+                if (!empty($onListenerError)) {
+                    $onListenerError($throwable, $event, $listener);
+                }
+            }
+
+            if (!$isStoppable) {
+                continue;
+            }
+
+            /** @var StoppableEventInterface $event */
+            if ($event->isPropagationStopped()) {
+                break;
+            }
+        }
+
+        return $event;
+    }
 }
